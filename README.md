@@ -1,33 +1,20 @@
-# Grammar-Scoring-Engine-for-Voice-Samples
+# 🧠 Grammar Scoring Engine for Spoken English
+This project focuses on developing a Grammar Scoring Engine that evaluates the grammatical correctness of spoken English using machine learning techniques. The engine is designed to predict a continuous grammar score ranging from 0 to 5, based on the Mean Opinion Score (MOS) Likert scale.
 
-# Project Summary: Grammar Scoring Engine using Wav2Vec2
-This project implements a machine learning pipeline to automatically score spoken grammar on a scale of 0–5 using audio recordings. It leverages Facebook's Wav2Vec2 model for extracting meaningful speech representations, and uses a Random Forest classifier for predicting grammar proficiency levels.
+# 🎯 Objective
+To build a system that automatically assesses the grammar quality of spoken language samples (each approximately 45–60 seconds long), enabling scalable and consistent evaluation for language learning and assessment applications.
 
-# Key Components
-Wav2Vec2 (facebook/wav2vec2-base-960h): Pretrained transformer model used to extract deep audio features from 16kHz sampled speech.
+# 📊 Dataset
+Training Set: 444 audio samples
 
-Feature Extraction: Audio files are processed into embeddings by averaging over Wav2Vec2 hidden states.
+Testing Set: 195 audio samples
 
-Label Encoding & Balancing: Grammar labels are encoded and the dataset is class-balanced using upsampling to handle class imbalance.
+Each sample is labeled with a human-rated grammar score (0–5), following MOS guidelines.
 
-Random Forest Classifier: Trained on extracted features to predict discrete grammar scores.
+# 🛠️ Methodology
+Feature Extraction: Audio representations are extracted using Wav2Vec2, a state-of-the-art self-supervised speech model.
 
-# Evaluation Metrics:
+Modeling: A Random Forest Regressor is trained on the extracted features to predict the grammar scores.
 
-Classification Report (Precision, Recall, F1-Score)
-
-Root Mean Squared Error (RMSE)
-
-Pearson Correlation Coefficient
-
-Confusion Matrix
-
-Boxplot of prediction distribution (replaces traditional histogram)
-
-# Output
-Evaluation results on validation data, showing classification performance and error metrics.
-
-Boxplot visualizing the distribution of predicted scores grouped by true labels.
-
-submission.csv file generated for test predictions, ready for leaderboard submission.
+Evaluation: The model is evaluated using standard regression metrics (e.g., MAE, RMSE, R²) to ensure accuracy and generalization.
 
